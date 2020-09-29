@@ -12,11 +12,11 @@ Of course this personal repository is configured to be adapter on my specific ne
 
 From a powershell console, as an Administrator, just launch the following command:
 
-`Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Xeeynamo/setup/master/bootstrap.ps1'))`
+`Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/shubhamgulati91/bootstrap-windows-advanced/master/bootstrap.ps1'))`
 
 Or if you want to avoid to launch the set-up (mostly for debugging purpose), launch the following command:
 
-`Set-ExecutionPolicy Bypass -Scope Process -Force; $debug=$true; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Xeeynamo/setup/master/bootstrap.ps1'))`
+`Set-ExecutionPolicy Bypass -Scope Process -Force; $debug=$true; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/shubhamgulati91/bootstrap-windows-advanced/master/bootstrap.ps1'))`
 
 ## Customization
 
@@ -30,15 +30,13 @@ Please refer to [customization](customization.md) to discover how to configure y
 * Tweak the taskbar for multi-monitor configurations
 * Remove XPS and Fax services
 * Enable Telnet, .Net Framework 3.5, Hyper-V and Linux Subsystem
-* Install the latest Ubuntu LTS using WSL 1.0
+* Install the latest Ubuntu LTS using WSL 2.0
 * Disable telemetry
 * Install Dracula theme on both Command Prompt and PowerShell
 * Install your software from Chocolately in background
 * Restore your backed-up Start layout
 * Restore a back-up of home folder
-* Install foobar2000 plugins
 * Install Visual Studio Code extensions
-* Install the latest version of Visual Studio, silently
 
 ## To do
 
@@ -48,7 +46,6 @@ Please refer to [customization](customization.md) to discover how to configure y
 * Create a back-up script that upload the current settings into the private backup repository
 * Revert the changes made by the set-up script
 
-
 ## Bonus: Install Arch Linux
 
-Just launch `curl https://raw.githubusercontent.com/Xeeynamo/setup/master/linux/pre.sh | sh`
+Just launch `curl https://raw.githubusercontent.com/shubhamgulati91/bootstrap-windows-advanced/master/linux/pre.sh | sh`

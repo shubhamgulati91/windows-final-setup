@@ -9,3 +9,10 @@ function Install-VsCodeExtensionFromUrl([string]$name, [string]$url) {
 function Install-VsCodeExtension([string]$name) {
     & code "--install-extension" $name
 }
+
+function Restore-VsCodeUserSettings([string]$fileName) {
+    $dstPath = Join-Path $env:APPDATA "Code/User"
+    $dstFile = Join-Path $dstPath "settings.json"
+    New-MakeDirectoryForce $dstPath
+    Copy-Item $fileName $dstFile -Force
+}

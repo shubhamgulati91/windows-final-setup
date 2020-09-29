@@ -1,6 +1,6 @@
 # Settings
-$repoUri = 'https://github.com/Xeeynamo/setup.git'
-$setupPath = "./xeeynamo-setup"
+$repoUri = 'https://github.com/shubhamgulati91/bootstrap-windows-advanced.git'
+$setupPath = "./bootstrap-windows-advanced"
 
 Push-Location "/"
 
@@ -30,9 +30,9 @@ Push-Location $setupPath
 Import-Module '.\setup.psm1' -Force
 
 if ($debug -ne $true) {
+    # Setup
     Start-Setup
-
-    # Clean
+    # Clean Up
     Pop-Location
     Pop-Location
 }

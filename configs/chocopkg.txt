@@ -2,84 +2,60 @@
 # Basic
 ####################
 1 googlechrome
-1 logitech-options
-1 winrar
-1 keepass
-2 filezilla
-2 qbittorrent
-2 discord
+1 microsoft-edge
+2 mobaxterm
+2 google-drive-file-stream
+2 adobereader
+3 firefox
+3 unifying
+4 logitech-options
 
 ####################
 # Multimedia
 ####################
-1 foobar2000
-1 spotify
-2 k-litecodecpackfull
-2 audacity
-2 vlc
-3 screentogif
-3 calibre
-3 mp3tag
-3 picard
-3 obs-studio
 
 ####################
 # Entertainment
 ####################
-2 ds4windows
-3 steam
 
 ####################
 # Monitoring
 ####################
-2 coretemp
-2 intel-xtu
-2 crystaldiskinfo
-2 crystaldiskmark
-2 batteryinfoview
+3 coretemp
+3 intel-xtu
+3 batteryinfoview
 
 ####################
 # Tools
 ####################
-1 registrychangesview
-1 winmerge
-2 sysinternals
-2 win32diskimager
-2 cheatengine
-2 windirstat
-2 bulkrenameutility
+1 7zip
+1 autohotkey
+2 microsoft-windows-terminal
 
 ####################
 # Development
 ####################
 1 git
 1 git-lfs
-1 curl
-1 cmake
-1 gitkraken
-2 dependencywalker
-2 reshack
+1 tortoisegit
 2 postman
-2 angryip
-2 fiddler
-#2 docker-cli
+2 docker-desktop
+2 minikube
 
 ####################
 # IDE and editors
 ####################
-1 notepadplusplus
 1 vscode
+2 jetbrainstoolbox
 
 ####################
 # Runtime
 ####################
-1 vcredist-all
-2 dotnetcore-runtime
-2 javaruntime
 
 ####################
 # SDK
 ####################
-1 mingw
-1 nodejs
-2 python
+2 ojdkbuild
+2 adb
+2 nodejs
+3 python

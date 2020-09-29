@@ -4,41 +4,46 @@ $global:setupPath = (Get-Location).Path
 function Start-Setup {
     Write-Output "Beginning the set-up"
 
+    Create-RestorePoint "Before Automated Setup"
+
     $global:setupPath = (Get-Location).Path
 
     # Make sure that Git Bash uses colors on Windows
     [System.Environment]::SetEnvironmentVariable("FORCE_COLOR", "true", "Machine")
 
-    Set-ShellFolders
+    # Set-ShellFolders
     Install-UserProfile
-    Install-StartLayout "./configs/start-layout.xml"
-    Install-WindowsDeveloperMode
+    # Install-StartLayout "./configs/start-layout.xml"
+    # Install-WindowsDeveloperMode
     Set-DisableAdvertisementsForConsumerEdition $true
     Disable-Telemetry
-    Disable-IntelPowerThrottling
+    # Disable-IntelPowerThrottling
     Set-HidePeopleOnTaskbar $true
     Set-ShowSearchOnTaskbar $false
-    Set-SmallButtonsOnTaskbar $true
+    # Set-SmallButtonsOnTaskbar $true
     Set-MultiMonitorTaskbarMode "2"
-    Set-DisableWindowsDefender $true
+    # Set-DisableWindowsDefender $true
     Set-DarkTheme $true
-    Set-DisableLockScreen $true
-    Set-DisableAeroShake $true
+    # Set-DisableLockScreen $true
+    # Set-DisableAeroShake $true
     Set-EnableLongPathsForWin32 $true
-    Set-OtherWindowsStuff
+    # Set-OtherWindowsStuff
     Remove-3dObjectsFolder
-    Disable-AdministratorSecurityPrompt
+    # Disable-AdministratorSecurityPrompt
+    Disable-BingSearchInStartMenu
     Disable-UselessServices
     Disable-EasyAccessKeyboard
     Set-FolderViewOptions
     Uninstall-StoreApps
     Install-Ubuntu
+    Set-ComputerName "ZENBOOK-PRO"
 
     # This will fail in Windows Sandbox
     @(
         "Printing-XPSServices-Features"
         "Printing-XPSServices-Features"
         "FaxServicesClientPackage"
+        "Internet-Explorer-Optional-amd64"
     ) | ForEach-Object { Disable-WindowsOptionalFeature -FeatureName $_ -Online -NoRestart }
 
     # This will fail in Windows Sandbox
@@ -47,6 +52,7 @@ function Start-Setup {
         "HypervisorPlatform"
         "NetFx3"
         "Microsoft-Hyper-V-All"
+        "Containers"
         "Containers-DisposableClientVM" # Windows Sandbox
     ) | ForEach-Object { Enable-WindowsOptionalFeature -FeatureName $_ -Online -NoRestart }
 
@@ -59,23 +65,16 @@ function Start-Setup {
     Remove-HiddenAttribute "/ProgramData"
     Remove-HiddenAttribute (Join-Path $env:USERPROFILE "AppData")
 
-    Install-Foobar2000Plugins "./configs/foobar2000plugins.txt"
     Install-VsCodeExtensions "./configs/vscode-extensions.txt"
+    Restore-VsCodeUserSettings "./configs/vscode-settings.json"
 
     Get-ChildItem .\modules\common.psm1 | Import-Module -Force
     Get-ChildItem .\modules\*.psm1 | Import-Module -Force
     $global:setupPath = (Get-Location).Path
 
-    Install-VisualStudioProfessional (Join-VisualStudioConfigurations @(
-        "./configs/visualstudio/core.vsconfig",
-        "./configs/visualstudio/dotnet.vsconfig",
-        "./configs/visualstudio/cplusplus.vsconfig"
-    ))
-
-
-    # Install Dracula theme and configs for Notepad++
-    Get-DownloadFile "~\AppData\Roaming\Notepad++\themes\Dracula.xml" "https://raw.githubusercontent.com/dracula/notepad-plus-plus/master/Dracula.xml"
-    Copy-Item ".\configs\notepadplusplus\config.xml" "~\AppData\Roaming\Notepad++\"
+    # # Install Dracula theme and configs for Notepad++
+    # Get-DownloadFile "~\AppData\Roaming\Notepad++\themes\Dracula.xml" "https://raw.githubusercontent.com/dracula/notepad-plus-plus/master/Dracula.xml"
+    # Copy-Item ".\configs\notepadplusplus\config.xml" "~\AppData\Roaming\Notepad++\"
 
     # Install Dracula theme for all terminals
     Invoke-TemporaryZipDownload "colortool" "https://github.com/microsoft/terminal/releases/download/1904.29002/ColorTool.zip" {
@@ -94,25 +93,19 @@ function Start-Setup {
         }
     }
 
+    Run-WindowsUpdate
     Remove-TempDirectory
 }
 
 function Set-ShellFolders {
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "Desktop" "D:\Xeeynamo\Desktop"
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Music" "D:\Xeeynamo\Music"
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Pictures" "D:\Xeeynamo\Pictures"
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Video" "D:\Xeeynamo\Video"
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "Personal" "D:\Xeeynamo\Documents"
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "{374DE290-123F-4565-9164-39C4925E467B}" "D:\Xeeynamo\Downloads"
+    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "Desktop" "D:\Shubham\Desktop"
+    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Music" "D:\Shubham\Music"
+    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Pictures" "D:\Shubham\Pictures"
+    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Video" "D:\Shubham\Video"
+    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "Personal" "D:\Shubham\Documents"
+    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "{374DE290-123F-4565-9164-39C4925E467B}" "D:\Shubham\Downloads"
 }
 
-function Install-Foobar2000Plugins([string]$configFileName) {
-    Get-Content $configFileName |
-        Where-Object { $_[0] -ne '#' -and $_.Length -gt 0 } |
-        ForEach-Object {
-            Install-Foobar2000PluginFromUrl $_
-        }
-}
 function Install-VsCodeExtensions([string]$configFileName) {
     Get-Content $configFileName |
         Where-Object { $_[0] -ne '#' -and $_.Length -gt 0 } |

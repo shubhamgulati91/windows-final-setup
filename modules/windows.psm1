@@ -14,14 +14,16 @@ function Uninstall-WindowsFeature($feature) {
 
 function Install-Ubuntu() {
     Install-WindowsFeature Microsoft-Windows-Subsystem-Linux
-    Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
+    Install-ChocoPackageIfNotInstalled wsl2
+    wsl --set-default-version 2
+    Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
     Add-AppxPackage -Path .\Ubuntu.appx
     Remove-Item -Path .\Ubuntu.appx -Force
 }
 
 function Uninstall-Ubuntu() {
     Uninstall-WindowsFeature Microsoft-Windows-Subsystem-Linux
-    Get-AppxPackage -Name CanonicalGroupLimited.Ubuntu18.04onWindows | Remove-AppxPackage
+    Get-AppxPackage -Name CanonicalGroupLimited.Ubuntu20.04onWindows | Remove-AppxPackage
 }
 
 function Install-StartLayout([string]$fileName) {
@@ -154,6 +156,19 @@ function Disable-AdministratorSecurityPrompt() {
 function Disable-BingSearchInStartMenu {
     Set-RegistryValue "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" "BingSearchEnabled" "0"
     Set-RegistryValue "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer" "DisableSearchBoxSuggestions" "1"
+}
+
+function Create-RestorePoint($value) {
+    Enable-ComputerRestore -drive "C:\"
+    Checkpoint-Computer -Description $value -RestorePointType "APPLICATION_INSTALL"
+}
+
+function Set-ComputerName($value) {
+    Set-RegistryBool "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\FileSystem" "LongPathsEnabled " $value
+}
+
+function Run-WindowsUpdate {
+    Install-WindowsUpdate -AcceptAll
 }
 
 function Set-OtherWindowsStuff {
