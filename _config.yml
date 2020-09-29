@@ -2,5 +2,6 @@ theme: jekyll-theme-minimal
 title: Windows set-up automation
 description: Set-up your Windows environment from a fresh installation, with just a line of code!
 logo: theme-logo.png
+favicon: theme-logo.png
 show_downloads: false
 # google_analytics: 
