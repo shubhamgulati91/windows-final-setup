@@ -8,7 +8,7 @@
 2 adobereader
 3 firefox
 3 unifying
-4 logitech-options
+0 logitech-options
 
 ####################
 # Multimedia
@@ -21,9 +21,9 @@
 ####################
 # Monitoring
 ####################
-3 coretemp
-3 intel-xtu
-3 batteryinfoview
+0 coretemp
+0 intel-xtu
+0 batteryinfoview
 
 ####################
 # Tools
