@@ -15,7 +15,7 @@ function Uninstall-WindowsFeature($feature) {
 function Install-Ubuntu() {
     Install-WindowsFeature Microsoft-Windows-Subsystem-Linux
     Install-ChocoPackageIfNotInstalled wsl2
-    wsl --set-default-version 2
+    # wsl --set-default-version 2
     Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
     Add-AppxPackage -Path .\Ubuntu.appx
     Remove-Item -Path .\Ubuntu.appx -Force
