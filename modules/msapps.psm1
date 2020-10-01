@@ -144,51 +144,51 @@ function Uninstall-StoreApps {
         "*McAfee*"
     )
 
-    ForEach($TargetApp in $BlackListedApps)
-    {
-        "Trying to remove $TargetApp"
-        Try
-        {
-            Get-AppxPackage -Name $TargetApp -AllUsers | Remove-AppxPackage -AllUsers
-
-            Get-AppXProvisionedPackage -Online |
-                Where-Object DisplayName -EQ $TargetApp |
-                Remove-AppxProvisionedPackage -Online
-        }
-        Catch
-        {
-            $ErrorMessage = $_.Exception.Message
-            $sLogOutput = "Non-critical error: Removal of $TargetApp failed" # , error message is : " + $ErrorMessage
-            Write-Output $sLogOutput
-        }
-    }
-
-    # $AllAppPkgs = (Get-AppxPackage -AllUsers).Name
-    # 'TotalApps: ' + $AllAppPkgs.Count
-    # 'TotalWhiteListedApps: ' + $WhiteListedApps.Count
-    # 'TotalBlackListedApps: ' + ($AllAppPkgs.Count - $WhiteListedApps.Count)
-    # ForEach($TargetApp in $AllAppPkgs)
+    # ForEach($TargetApp in $BlackListedApps)
     # {
-    #     If($WhiteListedApps -notcontains $TargetApp)
+    #     "Trying to remove $TargetApp"
+    #     Try
     #     {
-    #         "Trying to remove $TargetApp"
+    #         Get-AppxPackage -Name $TargetApp -AllUsers | Remove-AppxPackage -AllUsers
 
-    #         Try
-    #         {
-    #             Get-AppxPackage -Name $TargetApp -AllUsers | Remove-AppxPackage -AllUsers
-
-    #             Get-AppXProvisionedPackage -Online |
-    #                 Where-Object DisplayName -EQ $TargetApp |
-    #                 Remove-AppxProvisionedPackage -Online
-    #         }
-    #         Catch
-    #         {
-    #             $ErrorMessage = $_.Exception.Message
-    #             $sLogOutput = "Non-critical error: Removal of $TargetApp failed" # , error message is : " + $ErrorMessage
-    #             Write-Output $sLogOutput
-    #         }
+    #         Get-AppXProvisionedPackage -Online |
+    #             Where-Object DisplayName -EQ $TargetApp |
+    #             Remove-AppxProvisionedPackage -Online
+    #     }
+    #     Catch
+    #     {
+    #         $ErrorMessage = $_.Exception.Message
+    #         $sLogOutput = "Non-critical error: Removal of $TargetApp failed" # , error message is : " + $ErrorMessage
+    #         Write-Output $sLogOutput
     #     }
     # }
+
+    $AllAppPkgs = (Get-AppxPackage -AllUsers).Name
+    'TotalApps: ' + $AllAppPkgs.Count
+    'TotalWhiteListedApps: ' + $WhiteListedApps.Count
+    'TotalBlackListedApps: ' + ($AllAppPkgs.Count - $WhiteListedApps.Count)
+    ForEach($TargetApp in $AllAppPkgs)
+    {
+        If($WhiteListedApps -notcontains $TargetApp)
+        {
+            "Trying to remove $TargetApp"
+
+            Try
+            {
+                Get-AppxPackage -Name $TargetApp -AllUsers | Remove-AppxPackage -AllUsers
+
+                Get-AppXProvisionedPackage -Online |
+                    Where-Object DisplayName -EQ $TargetApp |
+                    Remove-AppxProvisionedPackage -Online
+            }
+            Catch
+            {
+                $ErrorMessage = $_.Exception.Message
+                $sLogOutput = "Non-critical error: Removal of $TargetApp failed" # , error message is : " + $ErrorMessage
+                Write-Output $sLogOutput
+            }
+        }
+    }
 
     # Prevents Apps from re-installing
     New-MakeDirectoryForce "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
