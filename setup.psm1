@@ -42,7 +42,6 @@ function Start-Setup {
     @(
         "Printing-XPSServices-Features"
         "Printing-XPSServices-Features"
-        "FaxServicesClientPackage"
         "Internet-Explorer-Optional-amd64"
     ) | ForEach-Object { Disable-WindowsOptionalFeature -FeatureName $_ -Online -NoRestart }
 
