@@ -12,7 +12,7 @@ function Uninstall-WindowsFeature($feature) {
     }
 }
 
-function Install-Ubuntu() { #todo
+function Install-Ubuntu() {
     Install-WindowsFeature Microsoft-Windows-Subsystem-Linux
     Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
     Add-AppxPackage -Path .\Ubuntu.appx
