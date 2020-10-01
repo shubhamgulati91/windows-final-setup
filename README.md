@@ -10,12 +10,6 @@ Of course this personal repository is configured to be adapter on my specific ne
 
 ## Set-up
 
-For Boxstarter installer:
-
-`Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1')); Get-Boxstarter -Force`; `Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/shubhamgulati91/bootstrap-windows-advanced/master/bootstrap.ps1 -Credential (Get-Credential shubhamgulati91@outlook.com)`
-
-OR
-
 From a powershell console, as an Administrator, just launch the following command:
 
 `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/shubhamgulati91/bootstrap-windows-advanced/master/bootstrap.ps1'))`
@@ -31,11 +25,10 @@ Please refer to [customization](customization.md) to discover how to configure y
 ## Features
 
 * Disable the specified Windows services
-* Remove the damn pre-installed Windows Apps (goodbye Candy Crush Saga)
-* Enable Developer Mode
+* Remove pre-installed Windows Apps
 * Tweak the taskbar for multi-monitor configurations
 * Remove XPS and Fax services
-* Enable Telnet, .Net Framework 3.5, Hyper-V and Linux Subsystem
+* Hyper-V, Containers and Linux Subsystem
 * Install the latest Ubuntu LTS using WSL 2.0
 * Disable telemetry
 * Install Dracula theme on both Command Prompt and PowerShell

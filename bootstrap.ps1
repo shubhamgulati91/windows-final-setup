@@ -4,16 +4,16 @@ $setupPath = "./bootstrap-windows-advanced"
 
 Push-Location "/"
 
-# # Adjust the execution policy for a programming environment
-# Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force #todo
+# Adjust the execution policy for a programming environment
+Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force
 
-# # Install Chocolately
-# Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+# Install Chocolately
+Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-# Boxstarter options
-$Boxstarter.RebootOk=$true # Allow reboots?
-$Boxstarter.NoPassword=$false # Is this a machine with no login password?
-$Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a reboot
+# # Boxstarter options
+# $Boxstarter.RebootOk=$true # Allow reboots?
+# $Boxstarter.NoPassword=$false # Is this a machine with no login password?
+# $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a reboot
 
 # Clean if necessary
 if (Test-Path -Path $setupPath) {

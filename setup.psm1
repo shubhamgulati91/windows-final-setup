@@ -35,7 +35,7 @@ function Start-Setup {
     Disable-EasyAccessKeyboard
     Set-FolderViewOptions
     Uninstall-StoreApps
-    # Install-Ubuntu # todo
+    # Install-Ubuntu
     Set-ComputerName "ZENBOOK-PRO"
 
     # This will fail in Windows Sandbox
@@ -50,19 +50,16 @@ function Start-Setup {
     @(
         #"TelnetClient"
         #"HypervisorPlatform"
-        #"NetFx3"
         "Microsoft-Hyper-V-All"
         "Containers"
         #"Containers-DisposableClientVM" # Windows Sandbox
         "Microsoft-Windows-Subsystem-Linux"
     ) | ForEach-Object { Enable-WindowsOptionalFeature -FeatureName $_ -Online -NoRestart }
 
-    if (Test-PendingReboot) { Invoke-Reboot } #todo
-
     $chocopkgs = Get-ChocoPackages "./configs/chocopkg.txt"
     Install-ChocoPackages $chocopkgs 1
-    # Install-ChocoPackages $chocopkgs 2
-    # Install-ChocoPackages $chocopkgs 3
+    Install-ChocoPackages $chocopkgs 2
+    Install-ChocoPackages $chocopkgs 3
 
     # Remove-DesktopIcon
     Remove-HiddenAttribute "/ProgramData"
@@ -74,10 +71,6 @@ function Start-Setup {
     Get-ChildItem .\modules\common.psm1 | Import-Module -Force
     Get-ChildItem .\modules\*.psm1 | Import-Module -Force
     $global:setupPath = (Get-Location).Path
-
-    # # Install Dracula theme and configs for Notepad++
-    # Get-DownloadFile "~\AppData\Roaming\Notepad++\themes\Dracula.xml" "https://raw.githubusercontent.com/dracula/notepad-plus-plus/master/Dracula.xml"
-    # Copy-Item ".\configs\notepadplusplus\config.xml" "~\AppData\Roaming\Notepad++\"
 
     # Install Dracula theme for all terminals
     Invoke-TemporaryZipDownload "colortool" "https://github.com/microsoft/terminal/releases/download/1904.29002/ColorTool.zip" {
