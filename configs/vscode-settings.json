@@ -1,0 +1,35 @@
+{
+    "extensions.ignoreRecommendations": true,
+    "explorer.sortOrder": "type",
+    "editor.suggestSelection": "first",
+    "editor.fontFamily": "Operator Mono SSm Lig",
+    "editor.fontSize": 13,
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "300",
+    "editor.lineHeight": 20,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.acceptSuggestionOnEnter": "on",
+    "files.autoSave": "afterDelay",
+    "files.trimFinalNewlines": true,
+    "files.associations": {
+        "*.cfc": "html",
+        "*.cfm": "html"
+    },
+    "files.exclude": {
+        "**/.idea": true
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "terminal.integrated.fontWeight": "300",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.lineHeight": 1.2,
+    "editor.tokenColorCustomizations": null,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "editor.renameOnType": true,
+    "explorer.confirmDelete": false
+}
