@@ -5,7 +5,7 @@ $setupPath = "./bootstrap-windows-advanced"
 Push-Location "/"
 
 # Adjust the execution policy for a programming environment
-Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force
+# Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force #todo
 
 # Install Boxstarter & Chocolately
 # Set-ExecutionPolicy Bypass -Scope Process -Force
