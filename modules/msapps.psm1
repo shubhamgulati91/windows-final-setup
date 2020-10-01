@@ -132,11 +132,11 @@ function Uninstall-StoreApps {
         # apps which other apps depend on
         "Microsoft.Advertising.Xaml"
     ) | ForEach-Object {
-        Get-AppxPackage -Name $_ -AllUsers | Remove-AppxPackage -AllUsers
+        Get-AppxPackage -Name $_ -AllUsers | Remove-AppxPackage -AllUsers | Out-Null
     
         Get-AppXProvisionedPackage -Online |
             Where-Object DisplayName -EQ $_ |
-            Remove-AppxProvisionedPackage -Online
+            Remove-AppxProvisionedPackage -Online | Out-Null
     }
 
     # Prevents Apps from re-installing
