@@ -18,9 +18,9 @@ function Install-Ubuntu() {
     if (Test-PendingReboot) { Invoke-Reboot } #todo
     wsl --set-default-version 2 #todo
     # Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
+    # Add-AppxPackage -Path .\Ubuntu.appx
+    # Remove-Item -Path .\Ubuntu.appx -Force
     Install-ChocoPackageIfNotInstalled wsl-ubuntu-2004
-    Add-AppxPackage -Path .\Ubuntu.appx
-    Remove-Item -Path .\Ubuntu.appx -Force
 }
 
 function Uninstall-Ubuntu() {
