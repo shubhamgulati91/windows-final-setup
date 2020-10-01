@@ -61,7 +61,7 @@ function Start-Setup {
     Install-ChocoPackages $chocopkgs 2
     Install-ChocoPackages $chocopkgs 3
 
-    Remove-DesktopIcon
+    # Remove-DesktopIcon
     Remove-HiddenAttribute "/ProgramData"
     Remove-HiddenAttribute (Join-Path $env:USERPROFILE "AppData")
 
