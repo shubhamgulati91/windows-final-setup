@@ -59,3 +59,9 @@
 2 adb
 2 nodejs
 3 python
+
+####################
+# Linux
+####################
+1 wsl2
+2 wsl-ubuntu-2004

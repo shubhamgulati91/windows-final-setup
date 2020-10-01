@@ -12,15 +12,11 @@ function Uninstall-WindowsFeature($feature) {
     }
 }
 
-function Install-Ubuntu() {
+function Install-Ubuntu() { #todo
     Install-WindowsFeature Microsoft-Windows-Subsystem-Linux
-    Install-ChocoPackageIfNotInstalled wsl2
-    if (Test-PendingReboot) { Invoke-Reboot } #todo
-    wsl --set-default-version 2 #todo
-    # Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
-    # Add-AppxPackage -Path .\Ubuntu.appx
-    # Remove-Item -Path .\Ubuntu.appx -Force
-    Install-ChocoPackageIfNotInstalled wsl-ubuntu-2004
+    Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
+    Add-AppxPackage -Path .\Ubuntu.appx
+    Remove-Item -Path .\Ubuntu.appx -Force
 }
 
 function Uninstall-Ubuntu() {
