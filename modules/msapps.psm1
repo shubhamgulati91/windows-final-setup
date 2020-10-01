@@ -11,8 +11,33 @@ function New-MakeDirectoryForce([string]$path) {
 }
 
 function Uninstall-StoreApps {
-     @(
-        # default Windows 10 apps
+    $WhiteListedApps = @(
+        # Whitelisted Apps
+        "Microsoft.WindowsStore"
+        "Microsoft.FreshPaint"
+        "Microsoft.MSPaint"
+        "Microsoft.MicrosoftStickyNotes"
+        "Microsoft.Office.OneNote"
+        "Microsoft.OneConnect"
+        "Microsoft.Windows.Photos"
+        "Microsoft.WindowsCalculator"
+        "Microsoft.WindowsCamera"
+        "Microsoft.windowscommunicationsapps"
+        "Microsoft.WindowsSoundRecorder"
+
+        # Un-installable Apps
+        "Microsoft.BioEnrollment"
+        "Microsoft.MicrosoftEdge"
+        "Microsoft.Windows.Cortana"
+        "Microsoft.WindowsFeedback"
+        "Microsoft.XboxGameCallableUI"
+        "Microsoft.XboxIdentityProvider"
+        "Windows.ContactSupport"
+        "Microsoft.Advertising.Xaml"
+    )
+
+    $BlackListedApps = @(
+        # Default Windows 10 apps
         "Microsoft.3DBuilder"
         "Microsoft.Appconnector"
         "Microsoft.BingFinance"
@@ -20,29 +45,19 @@ function Uninstall-StoreApps {
         "Microsoft.BingSports"
         "Microsoft.BingTranslator"
         "Microsoft.BingWeather"
-        #"Microsoft.FreshPaint"
         "Microsoft.Microsoft3DViewer"
         "Microsoft.MicrosoftOfficeHub"
         "Microsoft.MicrosoftSolitaireCollection"
         "Microsoft.MicrosoftPowerBIForWindows"
         "Microsoft.MinecraftUWP"
-        #"Microsoft.MicrosoftStickyNotes"
         "Microsoft.NetworkSpeedTest"
-        #"Microsoft.Office.OneNote"
-        #"Microsoft.OneConnect"
         "Microsoft.People"
         "Microsoft.Print3D"
         "Microsoft.SkypeApp"
         "Microsoft.Wallet"
-        #"Microsoft.Windows.Photos"
         "Microsoft.WindowsAlarms"
-        #"Microsoft.WindowsCalculator"
-        #"Microsoft.WindowsCamera"
-        #"microsoft.windowscommunicationsapps"
         "Microsoft.WindowsMaps"
         "Microsoft.WindowsPhone"
-        #"Microsoft.WindowsSoundRecorder"
-        #"Microsoft.WindowsStore"
         "Microsoft.XboxApp"
         "Microsoft.XboxGameOverlay"
         "Microsoft.XboxGamingOverlay"
@@ -67,7 +82,6 @@ function Uninstall-StoreApps {
 
         # Creators Update apps
         #"Microsoft.Microsoft3DViewer"
-        #"Microsoft.MSPaint"
 
         #Redstone apps
         "Microsoft.BingFoodAndDrink"
@@ -128,16 +142,53 @@ function Uninstall-StoreApps {
         "*Dropbox*"
         "*Facebook*"
         "*McAfee*"
+    )
 
-        # apps which other apps depend on
-        "Microsoft.Advertising.Xaml"
-    ) | ForEach-Object {
-        Get-AppxPackage -Name $_ -AllUsers | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue
-    
-        Get-AppXProvisionedPackage -Online |
-            Where-Object DisplayName -EQ $_ |
-            Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
+    ForEach($TargetApp in $BlackListedApps)
+    {
+        "Trying to remove $TargetApp"
+        Try
+        {
+            Get-AppxPackage -Name $TargetApp -AllUsers | Remove-AppxPackage -AllUsers
+
+            Get-AppXProvisionedPackage -Online |
+                Where-Object DisplayName -EQ $TargetApp |
+                Remove-AppxProvisionedPackage -Online
+        }
+        Catch
+        {
+            $ErrorMessage = $_.Exception.Message
+            $sLogOutput = "Non-critical error: Removal of $TargetApp failed" # , error message is : " + $ErrorMessage
+            Write-Output $sLogOutput
+        }
     }
+
+    # $AllAppPkgs = (Get-AppxPackage -AllUsers).Name
+    # 'TotalApps: ' + $AllAppPkgs.Count
+    # 'TotalWhiteListedApps: ' + $WhiteListedApps.Count
+    # 'TotalBlackListedApps: ' + ($AllAppPkgs.Count - $WhiteListedApps.Count)
+    # ForEach($TargetApp in $AllAppPkgs)
+    # {
+    #     If($WhiteListedApps -notcontains $TargetApp)
+    #     {
+    #         "Trying to remove $TargetApp"
+
+    #         Try
+    #         {
+    #             Get-AppxPackage -Name $TargetApp -AllUsers | Remove-AppxPackage -AllUsers
+
+    #             Get-AppXProvisionedPackage -Online |
+    #                 Where-Object DisplayName -EQ $TargetApp |
+    #                 Remove-AppxProvisionedPackage -Online
+    #         }
+    #         Catch
+    #         {
+    #             $ErrorMessage = $_.Exception.Message
+    #             $sLogOutput = "Non-critical error: Removal of $TargetApp failed" # , error message is : " + $ErrorMessage
+    #             Write-Output $sLogOutput
+    #         }
+    #     }
+    # }
 
     # Prevents Apps from re-installing
     New-MakeDirectoryForce "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
