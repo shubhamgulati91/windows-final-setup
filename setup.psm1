@@ -35,7 +35,7 @@ function Start-Setup {
     Disable-EasyAccessKeyboard
     Set-FolderViewOptions
     Uninstall-StoreApps
-    # Install-Ubuntu
+    Install-Ubuntu
     Set-ComputerName "ZENBOOK-PRO"
 
     # This will fail in Windows Sandbox
@@ -48,12 +48,11 @@ function Start-Setup {
 
     # This will fail in Windows Sandbox
     @(
-        #"TelnetClient"
-        #"HypervisorPlatform"
+        "TelnetClient"
+        "HypervisorPlatform"
         "Microsoft-Hyper-V-All"
         "Containers"
-        #"Containers-DisposableClientVM" # Windows Sandbox
-        "Microsoft-Windows-Subsystem-Linux"
+        "Containers-DisposableClientVM"
     ) | ForEach-Object { Enable-WindowsOptionalFeature -FeatureName $_ -Online -NoRestart }
 
     $chocopkgs = Get-ChocoPackages "./configs/chocopkg.txt"

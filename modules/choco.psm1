@@ -42,6 +42,15 @@ function Install-ChocoPackage([string]$packageName, [switch]$force) {
     }
 }
 
+function Install-ChocoPackage-Unsafe([string]$packageName, [switch]$force) {
+    if ($force) {
+        & choco install $packageName --confirm --limit-output --force
+    }
+    else {
+        & choco install $packageName --confirm --limit-output
+    }
+}
+
 function Install-ChocoPackageIfNotInstalled([string]$packageName) {
     $isInstalled = Get-IsChocoPackageInstalled $packageName
     if ($isInstalled -eq $false) {
