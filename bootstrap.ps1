@@ -7,10 +7,15 @@ Push-Location "/"
 # Adjust the execution policy for a programming environment
 Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force
 
-# Install chocolately, the minimum requirement
+# Install Boxstarter & Chocolately
 Set-ExecutionPolicy Bypass -Scope Process -Force
 iex ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1')); Get-Boxstarter -Force
 # Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+# Boxstarter options
+$Boxstarter.RebootOk=$true # Allow reboots?
+$Boxstarter.NoPassword=$false # Is this a machine with no login password?
+$Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a reboot
 
 # Clean if necessary
 if (Test-Path -Path $setupPath) {
