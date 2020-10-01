@@ -4,14 +4,11 @@ $setupPath = "./bootstrap-windows-advanced"
 
 Push-Location "/"
 
-# Adjust the execution policy for a programming environment
-Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force #todo
+# # Adjust the execution policy for a programming environment
+# Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force #todo
 
 # # Install Chocolately
 # Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-# Install Boxstarter & Chocolately
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1')); Get-Boxstarter -Force
 
 # Boxstarter options
 $Boxstarter.RebootOk=$true # Allow reboots?
