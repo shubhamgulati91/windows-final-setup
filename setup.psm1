@@ -28,7 +28,7 @@ function Start-Setup {
     # Set-DisableAeroShake $true
     Set-EnableLongPathsForWin32 $true
     # Set-OtherWindowsStuff
-    Remove-3dObjectsFolder
+    Remove-3dObjectsFolder #todo
     # Disable-AdministratorSecurityPrompt
     Disable-BingSearchInStartMenu
     Disable-UselessServices

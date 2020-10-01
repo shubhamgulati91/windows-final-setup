@@ -15,8 +15,10 @@ function Uninstall-WindowsFeature($feature) {
 function Install-Ubuntu() {
     Install-WindowsFeature Microsoft-Windows-Subsystem-Linux
     Install-ChocoPackageIfNotInstalled wsl2
-    # wsl --set-default-version 2
-    Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
+    if (Test-PendingReboot) { Invoke-Reboot } #todo
+    wsl --set-default-version 2 #todo
+    # Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
+    Install-ChocoPackageIfNotInstalled wsl-ubuntu-2004
     Add-AppxPackage -Path .\Ubuntu.appx
     Remove-Item -Path .\Ubuntu.appx -Force
 }
@@ -163,8 +165,10 @@ function Create-RestorePoint($value) {
     Checkpoint-Computer -Description $value -RestorePointType "APPLICATION_INSTALL"
 }
 
-function Set-ComputerName($value) {
-    Set-RegistryBool "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\FileSystem" "LongPathsEnabled " $value
+function Set-ComputerName($computername) {
+    if ($env:computername -ne $computername) {
+	    Rename-Computer -NewName $computername
+    }
 }
 
 function Run-WindowsUpdate {
