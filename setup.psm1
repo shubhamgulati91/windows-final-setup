@@ -35,7 +35,7 @@ function Start-Setup {
     Disable-EasyAccessKeyboard
     Set-FolderViewOptions
     Uninstall-StoreApps
-    Install-Ubuntu # todo
+    # Install-Ubuntu # todo
     Set-ComputerName "ZENBOOK-PRO"
 
     # This will fail in Windows Sandbox
@@ -54,15 +54,15 @@ function Start-Setup {
         "Microsoft-Hyper-V-All"
         "Containers"
         #"Containers-DisposableClientVM" # Windows Sandbox
-        #"Microsoft-Windows-Subsystem-Linux"
+        "Microsoft-Windows-Subsystem-Linux"
     ) | ForEach-Object { Enable-WindowsOptionalFeature -FeatureName $_ -Online -NoRestart }
 
     if (Test-PendingReboot) { Invoke-Reboot } #todo
 
     $chocopkgs = Get-ChocoPackages "./configs/chocopkg.txt"
     Install-ChocoPackages $chocopkgs 1
-    Install-ChocoPackages $chocopkgs 2
-    Install-ChocoPackages $chocopkgs 3
+    # Install-ChocoPackages $chocopkgs 2
+    # Install-ChocoPackages $chocopkgs 3
 
     # Remove-DesktopIcon
     Remove-HiddenAttribute "/ProgramData"
