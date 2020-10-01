@@ -10,6 +10,14 @@ Of course this personal repository is configured to be adapter on my specific ne
 
 ## Set-up
 
+For Boxstarter installer:
+
+`Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1')); Get-Boxstarter -Force`
+
+`Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/shubhamgulati91/bootstrap-windows-advanced/master/bootstrap.ps1 -Credential (Get-Credential shubhamgulati91@outlook.com)`
+
+OR
+
 From a powershell console, as an Administrator, just launch the following command:
 
 `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/shubhamgulati91/bootstrap-windows-advanced/master/bootstrap.ps1'))`

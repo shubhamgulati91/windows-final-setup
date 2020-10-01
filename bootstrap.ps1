@@ -8,8 +8,8 @@ Push-Location "/"
 Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force
 
 # Install Boxstarter & Chocolately
-Set-ExecutionPolicy Bypass -Scope Process -Force
-iex ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1')); Get-Boxstarter -Force
+# Set-ExecutionPolicy Bypass -Scope Process -Force
+# iex ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1')); Get-Boxstarter -Force
 # Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 # Boxstarter options
