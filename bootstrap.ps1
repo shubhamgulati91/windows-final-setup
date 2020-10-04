@@ -2,8 +2,6 @@
 $repoUri = 'https://github.com/shubhamgulati91/windows-setup-finalize.git'
 $setupPath = "./windows-setup-finalize"
 
-RequireAdmin
-
 Push-Location "/"
 
 # Adjust the execution policy for a programming environment
@@ -36,11 +34,4 @@ if ($debug -ne $true) {
     # Clean Up
     Pop-Location
     Pop-Location
-}
-
-Function RequireAdmin {
-	If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
-		Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" $PSCommandArgs" -Verb RunAs
-		Exit
-	}
 }
