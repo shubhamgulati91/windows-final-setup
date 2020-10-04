@@ -1,6 +1,6 @@
 # Settings
-$repoUri = 'https://github.com/shubhamgulati91/bootstrap-windows-advanced.git'
-$setupPath = "./bootstrap-windows-advanced"
+$repoUri = 'https://github.com/shubhamgulati91/windows-final-setup.git'
+$setupPath = "./windows-final-setup"
 
 Push-Location "/"
 
