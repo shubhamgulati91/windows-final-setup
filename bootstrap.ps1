@@ -1,6 +1,6 @@
 # Settings
-$repoUri = 'https://github.com/shubhamgulati91/windows-final-setup.git'
-$setupPath = "./windows-final-setup"
+$repoUri = 'https://github.com/shubhamgulati91/windows-setup-finalize.git'
+$setupPath = "./windows-setup-finalize"
 
 Push-Location "/"
 
