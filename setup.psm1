@@ -15,44 +15,44 @@ function Start-Setup {
     Install-UserProfile
     # Install-StartLayout "./configs/start-layout.xml"
     # Install-WindowsDeveloperMode
-    Set-DisableAdvertisementsForConsumerEdition $true
-    Disable-Telemetry
+    # Set-DisableAdvertisementsForConsumerEdition $true
+    # Disable-Telemetry
     # Disable-IntelPowerThrottling
-    Set-HidePeopleOnTaskbar $true
-    Set-ShowSearchOnTaskbar $false
+    # Set-HidePeopleOnTaskbar $true
+    # Set-ShowSearchOnTaskbar $false
     # Set-SmallButtonsOnTaskbar $true
     Set-MultiMonitorTaskbarMode "2"
     # Set-DisableWindowsDefender $true
-    Set-DarkTheme $true
+    # Set-DarkTheme $true
     # Set-DisableLockScreen $true
     # Set-DisableAeroShake $true
-    Set-EnableLongPathsForWin32 $true
+    # Set-EnableLongPathsForWin32 $true
     # Set-OtherWindowsStuff
-    Remove-3dObjectsFolder #todo
+    # Remove-3dObjectsFolder
     # Disable-AdministratorSecurityPrompt
-    Disable-BingSearchInStartMenu
-    Disable-UselessServices
-    Disable-EasyAccessKeyboard
-    Set-FolderViewOptions
-    Uninstall-StoreApps
+    # Disable-BingSearchInStartMenu
+    # Disable-UselessServices #  check
+    # Disable-EasyAccessKeyboard
+    # Set-FolderViewOptions
+    # Uninstall-StoreApps # check
     Install-Ubuntu
     Set-ComputerName "ZENBOOK-PRO"
 
-    # This will fail in Windows Sandbox
-    @(
-        "Printing-XPSServices-Features"
-        "Printing-XPSServices-Features"
-        "Internet-Explorer-Optional-amd64"
-    ) | ForEach-Object { Disable-WindowsOptionalFeature -FeatureName $_ -Online -NoRestart }
+    # # This will fail in Windows Sandbox
+    # @(
+    #     "Printing-XPSServices-Features"
+    #     "Printing-XPSServices-Features"
+    #     "Internet-Explorer-Optional-amd64"
+    # ) | ForEach-Object { Disable-WindowsOptionalFeature -FeatureName $_ -Online -NoRestart }
 
-    # This will fail in Windows Sandbox
-    @(
-        "TelnetClient"
-        "HypervisorPlatform"
-        "Microsoft-Hyper-V-All"
-        "Containers"
-        "Containers-DisposableClientVM"
-    ) | ForEach-Object { Enable-WindowsOptionalFeature -FeatureName $_ -Online -NoRestart }
+    # # This will fail in Windows Sandbox
+    # @(
+    #     "TelnetClient"
+    #     "HypervisorPlatform"
+    #     "Microsoft-Hyper-V-All"
+    #     "Containers"
+    #     "Containers-DisposableClientVM"
+    # ) | ForEach-Object { Enable-WindowsOptionalFeature -FeatureName $_ -Online -NoRestart }
 
     $chocopkgs = Get-ChocoPackages "./configs/chocopkg.txt"
     Install-ChocoPackages $chocopkgs 1
@@ -91,14 +91,14 @@ function Start-Setup {
     Remove-TempDirectory
 }
 
-function Set-ShellFolders {
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "Desktop" "D:\Shubham\Desktop"
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Music" "D:\Shubham\Music"
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Pictures" "D:\Shubham\Pictures"
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Video" "D:\Shubham\Video"
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "Personal" "D:\Shubham\Documents"
-    Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "{374DE290-123F-4565-9164-39C4925E467B}" "D:\Shubham\Downloads"
-}
+# function Set-ShellFolders {
+#     Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "Desktop" "D:\Shubham\Desktop"
+#     Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Music" "D:\Shubham\Music"
+#     Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Pictures" "D:\Shubham\Pictures"
+#     Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "My Video" "D:\Shubham\Video"
+#     Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "Personal" "D:\Shubham\Documents"
+#     Set-RegistryString "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" "{374DE290-123F-4565-9164-39C4925E467B}" "D:\Shubham\Downloads"
+# }
 
 function Install-VsCodeExtensions([string]$configFileName) {
     Get-Content $configFileName |

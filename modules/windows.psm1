@@ -12,29 +12,29 @@ function Uninstall-WindowsFeature($feature) {
     }
 }
 
-# function Install-Ubuntu() {
-#     Install-WindowsFeature Microsoft-Windows-Subsystem-Linux
-#     Install-ChocoPackage wsl2
-#     Install-ChocoPackage wsl-ubuntu-2004
-# }
-
-# function Uninstall-Ubuntu() {
-#     Uninstall-WindowsFeature Microsoft-Windows-Subsystem-Linux
-#     Uninstall-ChocoPackage wsl2
-#     Uninstall-ChocoPackage wsl-ubuntu-2004
-# }
-
 function Install-Ubuntu() {
     Install-WindowsFeature Microsoft-Windows-Subsystem-Linux
-    Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
-    Add-AppxPackage -Path .\Ubuntu.appx
-    Remove-Item -Path .\Ubuntu.appx -Force
+    Install-ChocoPackage wsl2
+    Install-ChocoPackage wsl-ubuntu-2004
 }
 
 function Uninstall-Ubuntu() {
     Uninstall-WindowsFeature Microsoft-Windows-Subsystem-Linux
-    Get-AppxPackage -Name CanonicalGroupLimited.Ubuntu20.04onWindows | Remove-AppxPackage
+    Uninstall-ChocoPackage wsl2
+    Uninstall-ChocoPackage wsl-ubuntu-2004
 }
+
+# function Install-Ubuntu() {
+#     Install-WindowsFeature Microsoft-Windows-Subsystem-Linux
+#     Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
+#     Add-AppxPackage -Path .\Ubuntu.appx
+#     Remove-Item -Path .\Ubuntu.appx -Force
+# }
+
+# function Uninstall-Ubuntu() {
+#     Uninstall-WindowsFeature Microsoft-Windows-Subsystem-Linux
+#     Get-AppxPackage -Name CanonicalGroupLimited.Ubuntu20.04onWindows | Remove-AppxPackage
+# }
 
 function Install-StartLayout([string]$fileName) {
     # Unfortunately the function above imports the layout only for the "Default user"
