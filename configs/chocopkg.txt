@@ -38,6 +38,7 @@
 ####################
 1 git
 1 git-lfs
+1 gitkraken
 1 tortoisegit
 2 postman
 2 docker-desktop
