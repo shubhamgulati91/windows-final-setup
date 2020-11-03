@@ -12,6 +12,8 @@
 ####################
 # Multimedia
 ####################
+1 vlc
+3 handbrake
 
 ####################
 # Entertainment
