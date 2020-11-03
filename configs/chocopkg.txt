@@ -8,7 +8,7 @@
 2 adobereader
 3 firefox
 3 unifying
-0 logitech-options
+3 logitech-options
 
 ####################
 # Multimedia
@@ -31,6 +31,7 @@
 1 7zip
 1 autohotkey
 2 microsoft-windows-terminal
+3 windows10-media-creation-tool
 
 ####################
 # Development
