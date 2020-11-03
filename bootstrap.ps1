@@ -39,6 +39,8 @@ if ($debug -ne $true) {
 }
 
 # Clean Up
-Remove-Item $setupPath -Recurse -Force
 Pop-Location
+if (Test-Path -Path $setupPath) {
+    Remove-Item $setupPath -Recurse -Force
+}
 Pop-Location
