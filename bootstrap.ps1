@@ -36,7 +36,9 @@ Import-Module '.\setup.psm1' -Force
 if ($debug -ne $true) {
     # Setup
     Start-Setup
-    # Clean Up
-    Pop-Location
-    Pop-Location
 }
+
+# Clean Up
+Remove-Item $setupPath -Recurse -Force
+Pop-Location
+Pop-Location
