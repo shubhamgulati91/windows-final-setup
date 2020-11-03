@@ -31,10 +31,10 @@ function Start-Setup {
     # Remove-3dObjectsFolder
     # Disable-AdministratorSecurityPrompt
     # Disable-BingSearchInStartMenu
-    # Disable-UselessServices #  check
+    # Disable-UselessServices
     # Disable-EasyAccessKeyboard
     # Set-FolderViewOptions
-    # Uninstall-StoreApps # check
+    Uninstall-StoreApps
     Install-Ubuntu
     Set-ComputerName "ZENBOOK-PRO"
 

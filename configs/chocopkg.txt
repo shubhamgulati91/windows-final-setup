@@ -2,7 +2,6 @@
 # Basic
 ####################
 1 googlechrome
-1 microsoft-edge
 2 mobaxterm
 2 google-drive-file-stream
 2 adobereader
