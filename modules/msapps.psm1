@@ -24,6 +24,8 @@ function Uninstall-StoreApps {
         "Microsoft.WindowsCamera"
         "Microsoft.windowscommunicationsapps"
         "Microsoft.WindowsSoundRecorder"
+        "Microsoft.ZuneMusic"
+        "Microsoft.ZuneVideo"
 
         # Un-installable Apps
         "Microsoft.BioEnrollment"
@@ -63,8 +65,6 @@ function Uninstall-StoreApps {
         "Microsoft.XboxGamingOverlay"
         "Microsoft.XboxSpeechToTextOverlay"
         "Microsoft.Xbox.TCUI"
-        "Microsoft.ZuneMusic"
-        "Microsoft.ZuneVideo"
         "*holo*"
         "*3dv*"
         "*3db*"
