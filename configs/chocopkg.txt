@@ -14,6 +14,9 @@
 ####################
 1 vlc
 3 handbrake
+3 audacity
+3 audacity-ffmpeg
+3 mp3tag
 
 ####################
 # Entertainment
