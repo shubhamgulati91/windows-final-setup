@@ -3,24 +3,25 @@
 ####################
 1 googlechrome
 2 mobaxterm
-2 google-drive-file-stream
 2 adobereader
-3 firefox
-3 unifying
-3 logitech-options
+3 google-drive-file-stream
+0 firefox
+0 unifying
+0 logitech-options
 
 ####################
 # Multimedia
 ####################
 1 vlc
-3 handbrake
-3 audacity
-3 audacity-ffmpeg
-3 mp3tag
+0 handbrake
+0 audacity
+0 audacity-ffmpeg
+0 mp3tag
 
 ####################
 # Entertainment
 ####################
+
 
 ####################
 # Monitoring
@@ -42,11 +43,11 @@
 ####################
 1 git
 1 git-lfs
-1 gitkraken
-1 tortoisegit
+2 gitkraken
+2 tortoisegit
 2 postman
-2 docker-desktop
-2 minikube
+3 docker-desktop
+3 minikube
 
 ####################
 # IDE and editors
@@ -63,8 +64,10 @@
 ####################
 2 ojdkbuild
 2 adb
-2 nodejs
+3 nodejs
 3 python
+3 go
+3 rust
 
 ####################
 # Linux
