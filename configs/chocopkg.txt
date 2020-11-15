@@ -64,10 +64,10 @@
 ####################
 2 ojdkbuild
 2 adb
-3 nodejs
-3 python
-3 go
-3 rust
+0 nodejs
+0 python
+0 go
+0 rust
 
 ####################
 # Linux
