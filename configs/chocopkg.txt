@@ -22,7 +22,6 @@
 # Entertainment
 ####################
 
-
 ####################
 # Monitoring
 ####################
@@ -35,6 +34,7 @@
 ####################
 1 7zip
 1 autohotkey
+1 caffeine
 2 microsoft-windows-terminal
 3 windows10-media-creation-tool
 
@@ -50,7 +50,7 @@
 3 minikube
 
 ####################
-# IDE and editors
+# IDE and Editors
 ####################
 1 vscode
 2 jetbrainstoolbox
@@ -58,6 +58,11 @@
 ####################
 # Runtime
 ####################
+
+####################
+# Virtualization
+####################
+0 vmware-workstation-player
 
 ####################
 # SDK
