@@ -17,5 +17,4 @@ MS-vsliveshare.vsliveshare
 ms-vscode.vs-keybindings
 ms-vscode-remote.remote-wsl
 ms-azuretools.vscode-docker
-dracula-theme.theme-dracula
 ms-vscode-remote.remote-ssh-edit
