@@ -3,9 +3,11 @@
     "explorer.sortOrder": "type",
     "editor.suggestSelection": "first",
     "editor.fontFamily": "Operator Mono SSm Lig",
+    // "editor.fontFamily": "OperatorMonoSSmLig-Book",
     "editor.fontSize": 13,
     "editor.fontLigatures": true,
     "editor.fontWeight": "300",
+    // "editor.fontWeight": "500",
     "editor.lineHeight": 20,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
@@ -30,6 +32,6 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "editor.renameOnType": true,
+    "editor.linkedEditing": true,
     "explorer.confirmDelete": false
 }
