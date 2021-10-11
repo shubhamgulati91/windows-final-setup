@@ -1,0 +1,12 @@
+eamodio.gitlens
+ritwickdey.LiveServer
+shd101wyy.markdown-preview-enhanced
+Tyriar.vscode-terminal-here
+xabikos.ReactSnippets
+ms-vscode.powershell
+ms-python.python
+MS-vsliveshare.vsliveshare
+ms-vscode.vs-keybindings
+ms-vscode-remote.remote-wsl
+ms-azuretools.vscode-docker
+ms-vscode-remote.remote-ssh-edit
