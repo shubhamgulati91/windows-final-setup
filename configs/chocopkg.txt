@@ -1,27 +1,19 @@
 ####################
 # Basic
 ####################
-1 googlechrome
-2 mobaxterm
-2 adobereader
-3 google-drive-file-stream
-0 firefox
-0 unifying
-0 logitech-options
+1 firefox
+2 unifying
+0 mobaxterm
 
 ####################
 # Fonts
 ####################
-1 firacodenf
+0 firacodenf
 
 ####################
 # Multimedia
 ####################
-1 vlc
-0 handbrake
-0 audacity
-0 audacity-ffmpeg
-0 mp3tag
+2 vlc
 
 ####################
 # Entertainment
@@ -30,31 +22,26 @@
 ####################
 # Work
 ####################
-zoom
+1 webex-meetings
+0 zoom
 
 ####################
 # Monitoring
 ####################
-0 coretemp
-0 intel-xtu
-0 batteryinfoview
 
 ####################
 # Tools
 ####################
 1 7zip
-1 autohotkey
 1 caffeine
-2 microsoft-windows-terminal
-3 windows10-media-creation-tool
+3 microsoft-windows-terminal
 
 ####################
 # Development
 ####################
 1 git
 1 git-lfs
-2 gitkraken
-2 tortoisegit
+2 sourcetree
 2 postman
 3 docker-desktop
 3 minikube
@@ -77,10 +64,10 @@ zoom
 ####################
 # SDK
 ####################
-2 ojdkbuild
-2 adb
-0 nodejs
-0 python
+1 adoptopenjdk11
+2 nodejs
+3 python
+0 adb
 0 go
 0 rust
 
