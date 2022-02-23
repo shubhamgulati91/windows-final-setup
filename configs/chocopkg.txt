@@ -1,8 +1,8 @@
 ####################
 # Basic
 ####################
-1 firefox
-2 unifying
+0 firefox
+0 unifying
 0 mobaxterm
 
 ####################
@@ -13,7 +13,7 @@
 ####################
 # Multimedia
 ####################
-2 vlc
+0 vlc
 
 ####################
 # Entertainment
@@ -34,15 +34,15 @@
 ####################
 1 7zip
 1 caffeine
-3 microsoft-windows-terminal
+1 microsoft-windows-terminal
 
 ####################
 # Development
 ####################
-1 git
-1 git-lfs
-2 sourcetree
-2 postman
+0 git
+0 git-lfs
+3 sourcetree
+1 postman
 3 docker-desktop
 3 minikube
 
@@ -50,7 +50,7 @@
 # IDE and Editors
 ####################
 1 vscode
-2 jetbrainstoolbox
+1 jetbrainstoolbox
 
 ####################
 # Runtime
@@ -64,9 +64,9 @@
 ####################
 # SDK
 ####################
-1 adoptopenjdk11
-2 nodejs
-3 python
+0 adoptopenjdk11
+0 nodejs
+0 python
 0 adb
 0 go
 0 rust

@@ -36,7 +36,7 @@ function Start-Setup {
     # Set-FolderViewOptions
     Uninstall-StoreApps
     Install-Ubuntu
-    Set-ComputerName "ZENBOOK-PRO"
+    # Set-ComputerName "ZENBOOK-PRO"
 
     # # This will fail in Windows Sandbox
     # @(
@@ -56,8 +56,8 @@ function Start-Setup {
 
     $chocopkgs = Get-ChocoPackages "./configs/chocopkg.txt"
     Install-ChocoPackages $chocopkgs 1
-    Install-ChocoPackages $chocopkgs 2
-    Install-ChocoPackages $chocopkgs 3
+    # Install-ChocoPackages $chocopkgs 2
+    # Install-ChocoPackages $chocopkgs 3
 
     # Remove-DesktopIcon
     Remove-HiddenAttribute "/ProgramData"
@@ -70,22 +70,22 @@ function Start-Setup {
     Get-ChildItem .\modules\*.psm1 | Import-Module -Force
     $global:setupPath = (Get-Location).Path
 
-    # Install Dracula theme for all terminals
-    Invoke-TemporaryZipDownload "colortool" "https://github.com/microsoft/terminal/releases/download/1904.29002/ColorTool.zip" {
-        $termColorsPath = Join-Path $global:setupPath "configs/Dracula-ColorTool.itermcolors"
-        (& ./colortool "-d" "-b" "-x" $termColorsPath)
-        
-        Set-PSReadlineOption -Color @{
-            "Command" = [ConsoleColor]::Green
-            "Parameter" = [ConsoleColor]::Gray
-            "Operator" = [ConsoleColor]::Magenta
-            "Variable" = [ConsoleColor]::White
-            "String" = [ConsoleColor]::Yellow
-            "Number" = [ConsoleColor]::Blue
-            "Type" = [ConsoleColor]::Cyan
-            "Comment" = [ConsoleColor]::DarkCyan
-        }
-    }
+    # # Install Dracula theme for all terminals
+    # Invoke-TemporaryZipDownload "colortool" "https://github.com/microsoft/terminal/releases/download/1904.29002/ColorTool.zip" {
+    #     $termColorsPath = Join-Path $global:setupPath "configs/Dracula-ColorTool.itermcolors"
+    #     (& ./colortool "-d" "-b" "-x" $termColorsPath)
+    #     
+    #     Set-PSReadlineOption -Color @{
+    #         "Command" = [ConsoleColor]::Green
+    #         "Parameter" = [ConsoleColor]::Gray
+    #         "Operator" = [ConsoleColor]::Magenta
+    #         "Variable" = [ConsoleColor]::White
+    #         "String" = [ConsoleColor]::Yellow
+    #         "Number" = [ConsoleColor]::Blue
+    #         "Type" = [ConsoleColor]::Cyan
+    #         "Comment" = [ConsoleColor]::DarkCyan
+    #     }
+    # }
 
     Run-WindowsUpdate
     Remove-TempDirectory
