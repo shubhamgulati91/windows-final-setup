@@ -100,3 +100,9 @@ function Install-UserProfile {
         Select-Object -ExpandProperty Name |
         ForEach-Object { Copy-Item -Path "./home/$_" -Destination "~/" }
 }
+
+# Wait for key press
+Function WaitForKey {
+	Write-Output "`nPress any key to continue..."
+	[Console]::ReadKey($true) | Out-Null
+}

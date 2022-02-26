@@ -9,10 +9,10 @@ function Start-Setup {
     $global:setupPath = (Get-Location).Path
 
     # Make sure that Git Bash uses colors on Windows
-    [System.Environment]::SetEnvironmentVariable("FORCE_COLOR", "true", "Machine")
+    # [System.Environment]::SetEnvironmentVariable("FORCE_COLOR", "true", "Machine")
 
     # Set-ShellFolders
-    Install-UserProfile
+    # Install-UserProfile
     # Install-StartLayout "./configs/start-layout.xml"
     # Install-WindowsDeveloperMode
     # Set-DisableAdvertisementsForConsumerEdition $true
@@ -28,14 +28,14 @@ function Start-Setup {
     # Set-DisableAeroShake $true
     # Set-EnableLongPathsForWin32 $true
     # Set-OtherWindowsStuff
-    # Remove-3dObjectsFolder
+    Remove-3dObjectsFolder
     # Disable-AdministratorSecurityPrompt
     # Disable-BingSearchInStartMenu
     # Disable-UselessServices
     # Disable-EasyAccessKeyboard
     # Set-FolderViewOptions
     Uninstall-StoreApps
-    Install-Ubuntu
+    # Install-Ubuntu
     # Set-ComputerName "ZENBOOK-PRO"
 
     # # This will fail in Windows Sandbox
@@ -54,8 +54,8 @@ function Start-Setup {
     #     "Containers-DisposableClientVM"
     # ) | ForEach-Object { Enable-WindowsOptionalFeature -FeatureName $_ -Online -NoRestart }
 
-    $chocopkgs = Get-ChocoPackages "./configs/chocopkg.txt"
-    Install-ChocoPackages $chocopkgs 1
+    # $chocopkgs = Get-ChocoPackages "./configs/chocopkg.txt"
+    # Install-ChocoPackages $chocopkgs 1
     # Install-ChocoPackages $chocopkgs 2
     # Install-ChocoPackages $chocopkgs 3
 
@@ -63,8 +63,8 @@ function Start-Setup {
     Remove-HiddenAttribute "/ProgramData"
     Remove-HiddenAttribute (Join-Path $env:USERPROFILE "AppData")
 
-    Install-VsCodeExtensions "./configs/vscode-extensions.txt"
-    Restore-VsCodeUserSettings "./configs/vscode-settings.json"
+    # Install-VsCodeExtensions "./configs/vscode-extensions.txt"
+    # Restore-VsCodeUserSettings "./configs/vscode-settings.json"
 
     Get-ChildItem .\modules\common.psm1 | Import-Module -Force
     Get-ChildItem .\modules\*.psm1 | Import-Module -Force
@@ -87,7 +87,7 @@ function Start-Setup {
     #     }
     # }
 
-    Run-WindowsUpdate
+    # Run-WindowsUpdate
     Remove-TempDirectory
 }
 

@@ -1,0 +1,192 @@
+Set-ExecutionPolicy : Windows PowerShell updated your execution policy successfully, but the setting is overridden by
+a policy defined at a more specific scope.  Due to the override, your shell will retain its current effective
+execution policy of Bypass. Type "Get-ExecutionPolicy -List" to view your execution policy settings. For more
+information please see "Get-Help Set-ExecutionPolicy".
+At C:\Data\Projects\windows-setup-finalize\bootstrap.ps1:13 char:1
++ Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (:) [Set-ExecutionPolicy], SecurityException
+    + FullyQualifiedErrorId : ExecutionPolicyOverride,Microsoft.PowerShell.Commands.SetExecutionPolicyCommand
+WARNING: The names of some imported commands from the module 'windows' include unapproved verbs that might make them
+less discoverable. To find the commands with unapproved verbs, run the Import-Module command again with the Verbose
+parameter. For a list of approved verbs, type Get-Verb.
+WARNING: The names of some imported commands from the module 'setup' include unapproved verbs that might make them less
+ discoverable. To find the commands with unapproved verbs, run the Import-Module command again with the Verbose
+parameter. For a list of approved verbs, type Get-Verb.
+Beginning the set-up
+WARNING: A new system restore point cannot be created because one has already been created within the past 1440
+minutes. The frequency of restore point creation can be changed by creating the DWORD value
+'SystemRestorePointCreationFrequency' under the registry key 'HKLM\Software\Microsoft\Windows
+NT\CurrentVersion\SystemRestore'. The value of this registry key indicates the necessary time interval (in minutes)
+between two restore point creation. The default value is 1440 minutes (24 hours).
+The operation completed successfully.
+The operation completed successfully.
+Total Installed Apps: 114
+List Installed Apps:
+"1527c705-839a-4832-9118-54d4Bd6a0c89"
+"c5e2524a-ea46-4f67-841f-6a9465d9d515"
+"E2A4F912-2574-4A75-9BB0-0D023378592B"
+"F46D4000-FD22-4DB4-AC8E-4E1DDDE828FE"
+"Microsoft.AAD.BrokerPlugin"
+"Microsoft.AccountsControl"
+"Microsoft.AsyncTextService"
+"Microsoft.BioEnrollment"
+"Microsoft.CredDialogHost"
+"Microsoft.ECApp"
+"Microsoft.LockApp"
+"Microsoft.MicrosoftEdgeDevToolsClient"
+"Microsoft.MicrosoftEdge"
+"Microsoft.Win32WebViewHost"
+"Microsoft.Windows.Apprep.ChxApp"
+"Microsoft.Windows.AssignedAccessLockApp"
+"Microsoft.Windows.CallingShellApp"
+"Microsoft.Windows.CapturePicker"
+"Microsoft.Windows.CloudExperienceHost"
+"Microsoft.Windows.ContentDeliveryManager"
+"Microsoft.Windows.NarratorQuickStart"
+"Microsoft.Windows.OOBENetworkCaptivePortal"
+"Microsoft.Windows.OOBENetworkConnectionFlow"
+"Microsoft.Windows.ParentalControls"
+"Microsoft.Windows.PeopleExperienceHost"
+"Microsoft.Windows.PinningConfirmationDialog"
+"Microsoft.Windows.Search"
+"Microsoft.Windows.SecHealthUI"
+"Microsoft.Windows.SecureAssessmentBrowser"
+"Microsoft.Windows.ShellExperienceHost"
+"Microsoft.Windows.StartMenuExperienceHost"
+"Microsoft.Windows.XGpuEjectDialog"
+"Microsoft.XboxGameCallableUI"
+"MicrosoftWindows.Client.CBS"
+"MicrosoftWindows.UndockedDevKit"
+"NcsiUwpApp"
+"Windows.CBSPreview"
+"windows.immersivecontrolpanel"
+"Windows.PrintDialog"
+"Microsoft.549981C3F5F10"
+"Microsoft.NET.Native.Runtime.2.1"
+"Microsoft.NET.Native.Framework.2.1"
+"Microsoft.VCLibs.140.00.UWPDesktop"
+"Microsoft.VCLibs.140.00.UWPDesktop"
+"Microsoft.VCLibs.140.00"
+"Microsoft.VCLibs.140.00"
+"Microsoft.NET.Native.Runtime.2.2"
+"Microsoft.NET.Native.Runtime.2.2"
+"Microsoft.NET.Native.Framework.2.2"
+"Microsoft.NET.Native.Framework.2.2"
+"AD2F1837.HPProgrammableKey"
+"AD2F1837.HPSystemInformation"
+"AppUp.IntelGraphicsExperience"
+"Microsoft.Advertising.Xaml"
+"Microsoft.MSPaint"
+"Microsoft.NET.Native.Framework.1.7"
+"Microsoft.NET.Native.Runtime.1.7"
+"Microsoft.Services.Store.Engagement"
+"Microsoft.Services.Store.Engagement"
+"Microsoft.UI.Xaml.2.0"
+"Microsoft.WebMediaExtensions"
+"Microsoft.Windows.Photos"
+"Microsoft.XboxIdentityProvider"
+"Microsoft.ZuneVideo"
+"RealtekSemiconductorCorp.HPAudioControl"
+"WacomTechnologyCorp.HPPenSettings"
+"Microsoft.MicrosoftEdge.Stable"
+"Microsoft.Windows.Search"
+"MicrosoftWindows.Client.CBS"
+"c5e2524a-ea46-4f67-841f-6a9465d9d515"
+"CanonicalGroupLimited.UbuntuonWindows"
+"Microsoft.WindowsTerminal"
+"Microsoft.NET.Native.Framework.2.2"
+"Microsoft.VP9VideoExtensions"
+"Microsoft.HEIFImageExtension"
+"Microsoft.NET.Native.Framework.2.2"
+"Microsoft.UI.Xaml.2.7"
+"Microsoft.UI.Xaml.2.7"
+"Microsoft.VCLibs.140.00"
+"Microsoft.UI.Xaml.2.4"
+"Microsoft.VCLibs.140.00.UWPDesktop"
+"Microsoft.VCLibs.140.00"
+"Microsoft.UI.Xaml.2.4"
+"Microsoft.VCLibs.140.00.UWPDesktop"
+"Microsoft.ScreenSketch"
+"Microsoft.DesktopAppInstaller"
+"Microsoft.WebpImageExtension"
+"Microsoft.WindowsCalculator"
+"Microsoft.NET.Native.Runtime.2.1"
+"Microsoft.NET.Native.Framework.2.1"
+"Microsoft.NET.Native.Framework.1.7"
+"Microsoft.NET.Native.Framework.1.7"
+"Microsoft.NET.Native.Runtime.1.7"
+"Microsoft.NET.Native.Runtime.1.7"
+"AppUp.IntelManagementandSecurityStatus"
+"Microsoft.UI.Xaml.2.0"
+"AD2F1837.HPProgrammableKey"
+"Microsoft.MSPaint"
+"AppUp.ThunderboltControlCenter"
+"WacomTechnologyCorp.HPPenSettings"
+"Microsoft.UI.Xaml.2.1"
+"Microsoft.UI.Xaml.2.1"
+"Microsoft.StorePurchaseApp"
+"Microsoft.MicrosoftStickyNotes"
+"Microsoft.549981C3F5F10"
+"Microsoft.UI.Xaml.2.3"
+"Microsoft.UI.Xaml.2.3"
+"Microsoft.WindowsSoundRecorder"
+"Microsoft.XboxIdentityProvider"
+"AppUp.IntelOptaneMemoryandStorageManagement"
+"Microsoft.ZuneMusic"
+"Microsoft.WindowsStore"
+"Microsoft.WindowsCamera"
+"Microsoft.MicrosoftEdge.Stable"
+Total BlackListed Apps: 24
+"Microsoft.BingWeather"
+"Microsoft.Microsoft3DViewer"
+"Microsoft.MicrosoftSolitaireCollection"
+"Microsoft.Wallet"
+"Microsoft.WindowsAlarms"
+"Microsoft.WindowsFeedbackHub"
+"Microsoft.Xbox.TCUI"
+"Microsoft.XboxApp"
+"Microsoft.XboxGameOverlay"
+"Microsoft.XboxGamingOverlay"
+"Microsoft.XboxSpeechToTextOverlay"
+"Microsoft.YourPhone"
+"Microsoft.Xbox.TCUI"
+"Microsoft.XboxGameOverlay"
+"Microsoft.XboxSpeechToTextOverlay"
+"Microsoft.People"
+"Microsoft.XboxApp"
+"Microsoft.MixedReality.Portal"
+"Microsoft.BingWeather"
+"Microsoft.XboxGamingOverlay"
+"Microsoft.GetHelp"
+"Microsoft.WindowsMaps"
+"Microsoft.WindowsAlarms"
+"Microsoft.Getstarted"
+Trying to remove Microsoft.BingWeather
+Trying to remove Microsoft.Microsoft3DViewer
+Trying to remove Microsoft.MicrosoftSolitaireCollection
+Trying to remove Microsoft.Wallet
+Trying to remove Microsoft.WindowsAlarms
+Trying to remove Microsoft.WindowsFeedbackHub
+Trying to remove Microsoft.Xbox.TCUI
+Trying to remove Microsoft.XboxApp
+Trying to remove Microsoft.XboxGameOverlay
+Trying to remove Microsoft.XboxGamingOverlay
+Trying to remove Microsoft.XboxSpeechToTextOverlay
+Trying to remove Microsoft.YourPhone
+Trying to remove Microsoft.Xbox.TCUI
+Trying to remove Microsoft.XboxGameOverlay
+Trying to remove Microsoft.XboxSpeechToTextOverlay
+Trying to remove Microsoft.People
+Trying to remove Microsoft.XboxApp
+Trying to remove Microsoft.MixedReality.Portal
+Trying to remove Microsoft.BingWeather
+Trying to remove Microsoft.XboxGamingOverlay
+Trying to remove Microsoft.GetHelp
+Trying to remove Microsoft.WindowsMaps
+Trying to remove Microsoft.WindowsAlarms
+Trying to remove Microsoft.Getstarted
+WARNING: The names of some imported commands from the module 'windows' include unapproved verbs that might make them less discoverable. To find the commands
+with unapproved verbs, run the Import-Module command again with the Verbose parameter. For a list of approved verbs, type Get-Verb.
+
+Press any key to continue...

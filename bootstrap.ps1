@@ -1,6 +1,6 @@
 # Settings
 $repoUri = 'https://github.com/shubhamgulati91/windows-setup-finalize.git'
-$setupPath = "./windows-setup-finalize"
+$setupPath = $PSScriptRoot
 
 If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
     Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
@@ -13,21 +13,21 @@ Push-Location "/"
 Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force
 
 # Install Chocolately
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+# Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 # Clean if necessary
-if (Test-Path -Path $setupPath) {
-    Remove-Item $setupPath -Recurse -Force
-}
+# if (Test-Path -Path $setupPath) {
+#     Remove-Item $setupPath -Recurse -Force
+# }
 
 # Install git
-& choco install git --confirm --limit-output
+# & choco install git --confirm --limit-output
 
 # Reset the path environment
-$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") 
+# $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") 
 
 # Clone the setup repository
-& git clone $repoUri $setupPath
+# & git clone $repoUri $setupPath
 
 # Enter inside the repository and invoke the real set-up process
 Push-Location $setupPath
@@ -39,8 +39,10 @@ if ($debug -ne $true) {
 }
 
 # Clean Up
+# Pop-Location
+# if (Test-Path -Path $setupPath) {
+#     Remove-Item $setupPath -Recurse -Force
+# }
 Pop-Location
-if (Test-Path -Path $setupPath) {
-    Remove-Item $setupPath -Recurse -Force
-}
-Pop-Location
+
+WaitForKey
